@@ -18,5 +18,11 @@ Replicas = จำนวน Pod ที่ต้องการ
 
 Service
 ไม่สามารถวิ่งหา IP Pod หากปราศจาก Service ต้องมี Service ขวางหน้า Pod เสมอ
-ทดสอบ
+
+Service Type: Node Port (เรียกผ่าน IP ของ Node)
+ทั้ง Onprem/Oncloud มีพฤติกรรมไม่เหมือนกัน
+มีการทำ Forward Port ไปที่ ทุก Server ต่างกับ Docker ที่ไปเครื่องเดียว
+Service ใน Kubernetes คือ Logical Loadbalancer (Round robin)
+
+
 
