@@ -2,7 +2,7 @@
 
 ส่วนประกอบหลักๆ
 1. API (UI, CLI)
-2. Kubernetes Master (เหมือน Controller)
+2. Kubernetes Master (เหมือน Controller คอยจัดการ Node)
 3. Node
 
 Pod มีได้แค่ 1 IP เท่านั้น
@@ -31,6 +31,13 @@ Service Type: LoadBalancer
 มี IP ของ Loadbalancer เกี่ยวข้องจะได้ไม่ต้องเรียก Node IP
 สะดวกสบายมากขึ้นกว่าเดิม
 ใช้ได้แค่บน Oncloud เท่านั้น
+แต่ Onprem ก็ใช้ได้ แต่ยากหน่อย เช่น nginx commercial, f5, HA proxy (Manual สร้างต่างหาก)
+
+Service Type: ClusterIP
+ทั้ง Node Port และ LoadBalancer ต่างเป็นการ Expose ออกสู่ภายนอก
+ถ้าเราอยากจะ Protect Resource ภายในเช่น DB
+มีแค่ Logical Loadbalancer (Internal) ได้ IP มา
+โดยให้ App เรียกผ่าน IP ที่ได้มานี้
 
 
 
