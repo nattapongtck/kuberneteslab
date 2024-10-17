@@ -13,6 +13,7 @@ Deployment ดูแล Pod
 
 Replicas = จำนวน Pod ที่ต้องการ
 มี Healthcheck หาก Node เกิดตาย มันก็สามารถสร้าง Pod มาทดแทนได้ด้วย
+
 *** หาก Node กลับมา Online -> Pod จะไม่โยกกลับที่ Node เดิม
 
 
