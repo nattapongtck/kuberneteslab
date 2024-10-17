@@ -16,5 +16,7 @@ Replicas = จำนวน Pod ที่ต้องการ
 
 *** หาก Node กลับมา Online -> Pod จะไม่โยกกลับที่ Node เดิม
 
-
+Service
+ไม่สามารถวิ่งหา IP Pod หากปราศจาก Service ต้องมี Service ขวางหน้า Pod เสมอ
+ทดสอบ
 
