@@ -22,7 +22,16 @@ Service
 Service Type: Node Port (เรียกผ่าน IP ของ Node)
 ทั้ง Onprem/Oncloud มีพฤติกรรมไม่เหมือนกัน
 มีการทำ Forward Port ไปที่ ทุก Server ต่างกับ Docker ที่ไปเครื่องเดียว
-Service ใน Kubernetes คือ Logical Loadbalancer (Round robin)
+Service ใน Kubernetes คือ Logical Internal Loadbalancer (Round robin)
+Port 30000++
+
+Service Type: LoadBalancer 
+ถูก Upgrade จาก NodePort
+เรียกว่า External Loadbalancer
+มี IP ของ Loadbalancer เกี่ยวข้องจะได้ไม่ต้องเรียก Node IP
+สะดวกสบายมากขึ้นกว่าเดิม
+ใช้ได้แค่บน Oncloud เท่านั้น
+
 
 
 
