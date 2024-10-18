@@ -39,6 +39,11 @@ Service Type: ClusterIP
 มีแค่ Logical Loadbalancer (Internal) ได้ IP มา
 โดยให้ App เรียกผ่าน IP ที่ได้มานี้
 
+===
+
+Ingress เป็นอีกตัวที่มาช่วยแก้ปัญหา Service Type
+
+
 
 
 
