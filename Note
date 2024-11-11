@@ -119,6 +119,7 @@ Repo is template
 
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo list
+helm repo update
 
 when we add repo it just download not update to newest version
 cat ~/.cache/helm/repository
