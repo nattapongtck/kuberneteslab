@@ -172,3 +172,38 @@ kubectl run mongodb-client --rm --tty -i --restart='Never' --image=docker.io/bit
 --command -- mongosh admin --host mongodb --authenticationDatabase admin -u root -p changeme
 ===End access to mongodb===
 
+mkdir ~/bookinfo-secret
+touch ~/bookinfo-secret/bookinfo-dev-ratings-mongodb-secret.yaml
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bookinfo-dev-ratings-mongodb-secret
+  namespace: bookinfo-dev
+type: Opaque
+data:
+  mongodb-root-password: "cmF0aW5ncy1kZXYtcm9vdA=="
+  mongodb-password: "cmF0aW5ncy1kZXY="
+
+
+kubectl apply -f ~/bookinfo-secret/bookinfo-dev-ratings-mongodb-secret.yaml
+
+###Bonus section
+echo -n "ratings-dev-root" | base64 <<< text in base64
+
+cd ~/ratings
+mkdir database/
+touch database/ratings_data.json
+touch database/script.sh
+
+
+#ratings_data.json
+{"rating": 5}
+{"rating": 4}
+
+#script.sh
+#!/bin/sh
+
+set -e
+mongoimport --host localhost --username $MONGODB_USERNAME --password $MONGODB_PASSWORD \
+  --db $MONGODB_DATABASE --collection ratings --drop --file /docker-entrypoint-initdb.d/ratings_data.json
