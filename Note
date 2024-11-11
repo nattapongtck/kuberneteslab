@@ -147,8 +147,27 @@ kubectl run --namespace bookinfo-dev mongodb-client-3 --rm --tty -i --restart='N
 
 echo $MONGODB_ROOT_PASSWORD
 
+สร้าง File values.yaml
+# Authentication settings
+auth:
+  enabled: true
+  rootPassword: changeme
+  username: root
+  password: changeme
+  database: ryze
 
+# Persistent storage settings
+persistence:
+  enabled: true
+  size: 8Gi
+
+# Disable replica set
+replicaSet:
+  enabled: false
+
+helm install mongodb-f values.yaml bitnami/mongodb
 
 kubectl run mongodb-client --rm --tty -i --restart='Never' --image=docker.io/bitnami/mongodb:8.0.3-debian-12-r0 \
 --command -- mongosh admin --host mongodb --authenticationDatabase admin -u root -p changeme
 ===End access to mongodb===
+
