@@ -88,6 +88,7 @@ echo $(kubectl get secret bookinfo-dev-ratings-mongodb-secret \
 * `mkdir ~/ratings/k8s/helm-values/` and create `values-bookinfo-dev-ratings-mongodb.yaml` file inside `helm-values` directory and put below content
 
 ```yaml
+#if you have problem when run helm, Maybe cause by image, Try to remove image section
 image:
   tag: 4.4.4-debian-10-r27
 auth:
