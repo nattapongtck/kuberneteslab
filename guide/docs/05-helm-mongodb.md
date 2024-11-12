@@ -59,6 +59,7 @@ exit
 * This folder normally will be created and used by administrator of Kubernetes and developer can not access
 
 ```yaml
+# If failed try to change mongodb-password to mongodb-passwords
 apiVersion: v1
 kind: Secret
 metadata:
