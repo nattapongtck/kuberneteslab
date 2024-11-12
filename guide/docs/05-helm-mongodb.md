@@ -109,7 +109,7 @@ initdbScriptsConfigMap: bookinfo-dev-ratings-mongodb-initdb
 {"rating": 4}
 ```
 
-* Create `ratings_data.json` inside `databases` directory with following content
+* Create `script.sh` inside `databases` directory with following content
 
 ```bash
 #!/bin/sh
