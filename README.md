@@ -86,15 +86,15 @@ kubectl scale deployment nginx --replica=3
 
 
 ===Change image to apache=== 
-# first "nginx" = deployment name
-# second "nginx = pod name
-# --record = record event
+first "nginx" = deployment name
+second "nginx = pod name
+--record = record event
 kubectl set image deployment nginx nginx=httpd:2.4-alpine --record
 kubectl set image deployment nginx nginx=httpd:2.4-alpine --record && watch -n1 kubectl get pod
 
 
 ===Role back===
-# Example we are going rollback to nginx
+Example we are going rollback to nginx
 kubectl rollout history deployment nginx 
 
 kubectl rollout undo deployment nginx
@@ -103,7 +103,7 @@ kubectl rollout undo deployment nginx
 kubectl create deployment apache --image=httpd:2.4-alpine
 kubectl scale deployment apache --replicas=3
 
-# set service to apache
+set service to apache
 kubectl set selector service nginx "app=apache"
 
 ===Tshoot===
