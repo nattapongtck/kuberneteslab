@@ -41,6 +41,9 @@ spec:
         - name: MONGO_DB_USERNAME
           value: root
         - name: MONGO_DB_PASSWORD
-          value: ratings-dev-root
+          valueFrom:
+            secretKeyRef:
+              name: bookinfo-dev-ratings-mongodb-secret
+              key: mongodb-root-password
       imagePullSecrets:
       - name: registry-bookinfo

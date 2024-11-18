@@ -8,7 +8,7 @@ metadata:
   namespace: bookinfo-dev
 spec:
   rules:
-  - host: bookinfo.dev.opsta.net
+  - host: bookinfo.dev.isclab.site
     http:
       paths:
       - path: /ratings(/|$)(.*)
