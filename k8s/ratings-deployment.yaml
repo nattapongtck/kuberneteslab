@@ -40,7 +40,7 @@ spec:
           value: mongodb://bookinfo-dev-ratings-mongodb:27017/ratings-dev
         - name: MONGO_DB_USERNAME
           value: root
-        - name: MONGO_DB_PASSWORD
+        - name: MONGO_DB_PASSWORDS
           value: ratings-dev-root
       imagePullSecrets:
       - name: registry-bookinfo
