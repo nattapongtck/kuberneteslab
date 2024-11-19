@@ -4,17 +4,17 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-  name: bookinfo-dev-ratings
-  namespace: bookinfo-dev
+  name: {{ .Release.Name }}
+  namespace: {{ .Values.ratings.namespace }}
 spec:
   rules:
-  - host: bookinfo.dev.isclab.site
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
-      - path: /ratings(/|$)(.*)
+      - path: {{ .Values.ingress.path }}
         pathType: Prefix
         backend:
           service:
-            name: bookinfo-dev-ratings
+            name: {{ .Release.Name }}
             port:
-              number: 9080
+              number: {{ .Values.ratings.port }}
