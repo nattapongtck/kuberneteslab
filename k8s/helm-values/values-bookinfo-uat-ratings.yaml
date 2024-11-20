@@ -1,0 +1,22 @@
+ratings:
+  namespace: bookinfo-uat
+  image: 273595974032.dkr.ecr.us-east-1.amazonaws.com/bookinfo/bookinfo-ratings
+  tag: uat
+  replicas: 1
+  imagePullSecrets: registry-bookinfo
+  port: 9080
+  healthCheckPath: "/health"
+  mongodbPasswordExistingSecret: bookinfo-uat-ratings-mongodb-secret
+ingress:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  host: bookinfo.uat.isclab.site
+  path: "/ratings(/|$)(.*)"
+  serviceType: ClusterIP
+extraEnv:
+  SERVICE_VERSION: v2
+  MONGO_DB_URL: mongodb://bookinfo-uat-ratings-mongodb:27017/ratings-uat
+  MONGO_DB_USERNAME: ratings-uat
+
+
